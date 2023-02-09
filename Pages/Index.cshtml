@@ -1,0 +1,47 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+</div>
+<center>
+    <div class="align-content-center" style="width:500px; height: 500px" ;>
+        <canvas id="myChart"></canvas>
+    </div>
+</center>
+
+<script src="~/js/chart.js"></script>
+<script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        var options = {
+      legend: {display: false},
+      rotation: (86*Math.PI) - (25/180 * Math.PI)
+    }
+        const myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['All','AutoBuy Success','AutoBuy Fail'],
+                datasets: [{
+                    label: '# of Results',
+                    data: [30,40,30],
+                    backgroundColor: [
+                        '#7fa0dc',
+                        '#228B22',
+                        '#DC143C'
+                    ],
+                    borderColor: [
+                        '#7fa0dc',
+                        '#228B22',
+                        '#DC143C'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: options
+        });
+</script>
+
